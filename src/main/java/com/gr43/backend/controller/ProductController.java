@@ -8,18 +8,24 @@ package com.gr43.backend.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
+ * @formato /controllador/metodo
  * @author sergio
  */
-@Controller
-@RequestMapping("icontroller")
-public class IndexControlller {
+
+
+
+@RestController
+@RequestMapping("producto")
+public class ProductController {
     
-    @RequestMapping("index")
+    @RequestMapping("url")
     public String page(Model model) {
-        return "index";
+        model.addAttribute("attribute", "value");
+        return "view.name";
     }
     
 }
