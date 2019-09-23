@@ -26,7 +26,7 @@ public class IndexControlller {
     
     @RequestMapping("/")
     public ModelAndView index() {
-        ModelAndView model = new ModelAndView("index2");
+        ModelAndView model = new ModelAndView("dashboard");
         return model;
     }
     
