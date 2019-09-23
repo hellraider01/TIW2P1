@@ -25,7 +25,7 @@
     <mvc:annotation-driven />
     <context:annotation-config />
     <context:component-scan base-package="com.gr43.backend.*" />
-    <!--<mvc:default-servlet-handler/>-->
+    <mvc:default-servlet-handler/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
    
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
@@ -34,9 +34,8 @@
 
     <!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->    
                 
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>      
         <property name="prefix" value="/WEB-INF/vistas/" />
         <property name="suffix" value=".jsp" />
     </bean>

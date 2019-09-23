@@ -8,6 +8,7 @@ package com.gr43.backend.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -15,12 +16,17 @@ import org.springframework.web.servlet.ModelAndView;
  * @author sergio
  */
 @Controller
-@RequestMapping("icontroller")
 public class IndexControlller {
     
-    @RequestMapping("index")
-    public ModelAndView page() {
+    @RequestMapping("/list")
+    public ModelAndView listar() {
         ModelAndView model = new ModelAndView("index");
+        return model;
+    }
+    
+    @RequestMapping("/")
+    public ModelAndView index() {
+        ModelAndView model = new ModelAndView("index2");
         return model;
     }
     
