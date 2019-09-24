@@ -30,4 +30,28 @@ public class IndexController {
         return model;
     }
     
+    @RequestMapping("/usuarios")
+    public ModelAndView usuarios() {
+        ModelAndView model = new ModelAndView("usuario/index");
+        return model;
+    }
+    
+    @RequestMapping("/categorias")
+    public ModelAndView categorias() {
+        ModelAndView model = new ModelAndView("categoria/index");
+        return model;
+    }
+    
+    @RequestMapping("/productos")
+    public ModelAndView productos() {
+        ModelAndView model = new ModelAndView("productos/index");
+        return model;
+    }
+    
+    @RequestMapping("/mi_perfil")
+    public ModelAndView perfil() {
+        ModelAndView model = new ModelAndView("usuario/perfil");
+        return model;
+    }
+    
 }

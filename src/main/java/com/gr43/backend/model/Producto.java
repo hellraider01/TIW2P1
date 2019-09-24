@@ -3,29 +3,44 @@ package com.gr43.backend.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Lob;
 
 @Entity
 public class Producto {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
+	@Column
 	private String nombre;
 	
+	@Column
 	private String resumen;
 	
+	@Column
 	private String descripcion;
 	
+	@Column
 	private int cantidad;
 	
+	@Column
 	private BigDecimal precio;
 	
+	@Column
 	private Categoria categoría;
 	
 	@Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] imagen;
 	
+	@Column
 	private boolean activo;
 
 

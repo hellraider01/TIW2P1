@@ -39,36 +39,36 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
+            <a class="nav-link" href="/backend/">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
+              <p>Panel Principal</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
+            <a class="nav-link" href="/backend/mi_perfil">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Perfil de Usuario Actual</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+            <a class="nav-link" href="/backend/productos">
+              <i class="material-icons">all_inbox</i>
+              <p>Productos</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="/backend/categorias">
               <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <p>Categorias</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+            <a class="nav-link" href="/backend/usuarios">
+              <i class="material-icons">assignment_ind</i>
+              <p>Usuarios</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
             <a class="nav-link" href="./map.html">
               <i class="material-icons">location_ons</i>
               <p>Maps</p>
@@ -91,7 +91,7 @@
               <i class="material-icons">unarchive</i>
               <p>Upgrade to PRO</p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

@@ -1,22 +1,37 @@
 package com.gr43.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Usuario {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
+	@Column
 	private String email;
 	
+	@Column
 	private String password;
 	
+	@Column
 	private String nombre;
 	
+	@Column
 	private String apellidos;
 
+	@Column
 	private boolean activo;
 	
+	@Column
 	private String direccion;
 	
+	@Column
 	private int rol;
 	
 	public Usuario() {
