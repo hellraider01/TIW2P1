@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author sergio
  */
 @Controller
-public class IndexControlller {
+public class IndexController {
     
     @RequestMapping("/list")
     public ModelAndView listar() {
