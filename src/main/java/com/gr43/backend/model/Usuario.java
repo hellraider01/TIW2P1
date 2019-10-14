@@ -1,107 +1,118 @@
 package com.gr43.backend.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Usuario {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	@Column
-	private String email;
-	
-	@Column
-	private String password;
-	
-	@Column
-	private String nombre;
-	
-	@Column
-	private String apellidos;
+@Table
+public class Usuario implements Serializable {
 
-	@Column
-	private boolean activo;
-	
-	@Column
-	private String direccion;
-	
-	@Column
-	private int rol;
-	
-	public Usuario() {
-		super();
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	public Usuario(String email, String password, String nombre, String apellidos, boolean activo, String direccion) {
-		super();
-		this.email = email;
-		this.password = password;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.activo = activo;
-		this.direccion = direccion;
-	}
+    @Column
+    private String email;
 
-	public String getEmail() {
-		return email;
-	}
+    @Column
+    private String password;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Column
+    private String nombre;
 
-	public String getPassword() {
-		return password;
-	}
+    @Column
+    private String apellidos;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Column
+    private boolean activo;
 
-	public String getNombre() {
-		return nombre;
-	}
+    @Column
+    private String direccion;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    @Column
+    private int rol;
 
-	public String getApellidos() {
-		return apellidos;
-	}
+    public Usuario() {
+        super();
+    }
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
+    public Usuario(String email, String password, String nombre, String apellidos, boolean activo, String direccion) {
+        super();
+        this.email = email;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.activo = activo;
+        this.direccion = direccion;
+    }
 
-	public boolean isActivo() {
-		return activo;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setActivo(boolean activo) {
-		this.activo = activo;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getDireccion() {
-		return direccion;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public int getRol() {
-		return rol;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setRol(int rol) {
-		this.rol = rol;
-	}
-	
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public int getRol() {
+        return rol;
+    }
+
+    public void setRol(int rol) {
+        this.rol = rol;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.gr43.backend.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Basic;
@@ -9,10 +10,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 
 @Entity
-public class Producto {
+@Table
+public class Producto implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,12 +37,11 @@ public class Producto {
 	@Column
 	private BigDecimal precio;
 	
-	@Column
-	private Categoria categoría;
+	@Column 
+	private int categoría;
 	
-	@Lob
-    @Basic(fetch = FetchType.LAZY)
-    private byte[] imagen;
+	@Column
+    private String imagen;
 	
 	@Column
 	private boolean activo;
@@ -49,7 +52,7 @@ public class Producto {
 	}
 
 	public Producto(String nombre, String resumen, String descripcion, int cantidad, BigDecimal precio,
-			Categoria categoría, boolean activo) {
+			int categoría, boolean activo) {
 		super();
 		this.nombre = nombre;
 		this.resumen = resumen;
@@ -100,19 +103,19 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public Categoria getCategoría() {
+	public int getCategoría() {
 		return categoría;
 	}
 
-	public void setCategoría(Categoria categoría) {
+	public void setCategoría(int categoría) {
 		this.categoría = categoría;
 	}
 
-	public byte[] getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(byte[] imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 

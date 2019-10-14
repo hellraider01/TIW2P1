@@ -1,48 +1,59 @@
 package com.gr43.backend.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Categoria {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	@Column
-	private int padre=0; //categoria padre por defecto 0
-	
-	@Column
-	private String nombre;
-	
-	public Categoria() {
-		super();
-	}
+@Table
+public class Categoria implements Serializable {
 
-	public Categoria(int padre, String nombre) {
-		super();
-		this.padre = padre;
-		this.nombre = nombre;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	public int getPadre() {
-		return padre;
-	}
+    @Column
+    private int padre = 0; //categoria padre por defecto 0
 
-	public void setPadre(int padre) {
-		this.padre = padre;
-	}
+    @Column
+    private String nombre;
 
-	public String getNombre() {
-		return nombre;
-	}
+    public Categoria() {
+        super();
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public Categoria(int padre, String nombre) {
+        super();
+        this.padre = padre;
+        this.nombre = nombre;
+    }
+
+    public int getPadre() {
+        return padre;
+    }
+
+    public void setPadre(int padre) {
+        this.padre = padre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }

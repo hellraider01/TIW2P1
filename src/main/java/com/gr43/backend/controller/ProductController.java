@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
+    
+    
 	
 	@RequestMapping("/list")
     public String listar() {
