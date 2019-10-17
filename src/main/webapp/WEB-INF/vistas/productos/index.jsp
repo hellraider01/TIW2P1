@@ -8,7 +8,7 @@
 				<div class="card">
 					<div class="card-header card-header-primary">
 						<p class="card-title">Listado de Productos</p>
-						<a type="button" class="btn btn-primary">Crear Producto</a>
+                                                <a type="button" class="btn btn-primary" href="/backend/product/ver_crear/">Crear Producto</a>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">

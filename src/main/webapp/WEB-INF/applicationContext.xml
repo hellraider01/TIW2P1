@@ -13,6 +13,16 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <mvc:annotation-driven />
+    <context:annotation-config />
+    <context:component-scan
+        base-package="com.gr43.backend.model" />
+    <context:component-scan
+        base-package="com.gr43.backend.dao" />
+    <context:component-scan
+        base-package="com.gr43.backend.service" />
+    <context:component-scan
+        base-package="com.gr43.backend.controller" />
 
     <!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
     <property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
@@ -44,11 +54,6 @@
     <!-- Use @Transaction annotations for managing transactions -->
     <tx:annotation-driven transaction-manager="myTxManager" />
         
-        
-        
-        
-        
-        
     <!-- RESOURCE MANAGER -->
 
     <!-- Aplication context settings -->
@@ -60,10 +65,7 @@
 
     <!-- AutoDetections of clases -->
     <mvc:resources mapping="/static/**" location="/static/" />
-    <mvc:annotation-driven />
-    <context:annotation-config />
-    <context:component-scan
-        base-package="com.gr43.backend.*" />
+    
     <mvc:default-servlet-handler />
 
 
@@ -75,6 +77,13 @@
         class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 
     <!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->
+    
+    <!-- Response Converters -->
+    <bean id="jsonMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+    <bean id="xmlMessageConverter"
+              class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">

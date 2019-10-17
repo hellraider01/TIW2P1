@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gr43.backend.service.UsuarioDao;
+import com.gr43.backend.dao.UsuarioDao;
 
 @RestController
 @RequestMapping(value = "/usuarios")

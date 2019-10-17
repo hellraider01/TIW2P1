@@ -1,16 +1,21 @@
 package com.gr43.backend.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Usuario implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +41,10 @@ public class Usuario implements Serializable {
 
     @Column
     private int rol;
+    
+    @JoinColumn
+    @OneToMany
+    private List<Producto> favoritos;
 
     public Usuario() {
         super();
@@ -115,4 +124,12 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
+    public List<Producto> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(List<Producto> favoritos) {
+        this.favoritos = favoritos;
+    }
+    
 }

@@ -1,11 +1,14 @@
 package com.gr43.backend.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,10 @@ public class Categoria implements Serializable {
 
     @Column
     private int padre = 0; //categoria padre por defecto 0
+    
+    @JoinColumn
+    @OneToMany
+    private List<Categoria> hijas;
 
     @Column
     private String nombre;
@@ -56,4 +63,12 @@ public class Categoria implements Serializable {
         this.id = id;
     }
 
+    public List<Categoria> getHijas() {
+        return hijas;
+    }
+
+    public void setHijas(List<Categoria> hijas) {
+        this.hijas = hijas;
+    }
+    
 }
