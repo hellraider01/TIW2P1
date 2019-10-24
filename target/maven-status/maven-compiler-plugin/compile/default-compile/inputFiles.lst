@@ -3,6 +3,7 @@ D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\service\Categoria
 D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\model\Categoria.java
 D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\controller\ProductController.java
 D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\dao\CategoriaDaoImp.java
+D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\controller\CategoriaController.java
 D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\model\Producto.java
 D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\dao\UsuarioDao.java
 D:\UNIVERSIDAD\TIW\APPS\backend\src\main\java\com\gr43\backend\dao\ProductoDao.java

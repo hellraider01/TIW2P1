@@ -38,7 +38,7 @@ public class CategoriaServiceimpl implements CategoriaServicio{
     @Override
     @Transactional
     public List<Categoria> listarTodos() {
-        return cdao.findAll();
+        return cdao.findAll(Categoria.class);
     }
     
     @PostConstruct
@@ -47,6 +47,11 @@ public class CategoriaServiceimpl implements CategoriaServicio{
         p.setNombre("Root");
         p.setPadre(0);
         this.cdao.save(p);
+    }
+
+    @Override
+    public Categoria get_categoria(int id) {
+        return this.cdao.findOne(id, Categoria.class);
     }
     
     

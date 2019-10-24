@@ -7,14 +7,24 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gr43.backend.model.Producto;
-import com.gr43.backend.dao.ProductoDao;
+import com.gr43.backend.model.Categoria;
+import com.gr43.backend.service.CategoriaServicio;
+import com.gr43.backend.service.ProductoServicio;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.List;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
     @Autowired
-    private ProductoDao pservicio;
+    private CategoriaServicio cservicio;
+    
+    @Autowired
+    private ProductoServicio pservicio;
 
     @RequestMapping("/list")
     public String listar() {
@@ -23,19 +33,32 @@ public class ProductController {
 
     @RequestMapping("/ver_crear")
     public ModelAndView ver_crear() {
-        return new ModelAndView("productos/crear");
+        ModelAndView model = new ModelAndView("productos/crear");
+        List<Categoria> categorias = cservicio.listarTodos();
+        if(categorias!=null){
+            model.addObject("categorias", categorias);
+        }
+        return model;
     }
 
-    @RequestMapping("/crear")
-    public ModelAndView crear(@RequestParam String nombre, @RequestParam String descripcion, @RequestParam String resumen, @RequestParam String url, @RequestParam String unidades, @RequestParam String categoria) {
+    @RequestMapping(value="/crear", method= RequestMethod.POST)
+    public ModelAndView crear(@RequestParam String nombre, @RequestParam String descripcion, @RequestParam String resumen, @RequestParam MultipartFile file, @RequestParam String unidades, @RequestParam String categoria) throws IOException {
+        Base64.Encoder encoder = Base64.getEncoder();
+	String base64 = encoder.encodeToString(file.getBytes());
         Producto pro = new Producto();
         pro.setNombre(nombre);
         pro.setResumen(resumen);
         pro.setDescripcion(descripcion);
         pro.setCantidad(Integer.parseInt(unidades));
         pro.setActivo(true);
-        this.pservicio.save(pro);
-        return new ModelAndView("productos/index");
+        pro.setImagen(base64);
+        System.out.println(base64);
+        this.pservicio.crear_producto(pro);
+        // vuelvo a la vista
+        ModelAndView vista = new ModelAndView("productos/index");
+        List<Producto> productos = pservicio.listarTodos();
+        vista.addObject("productos", productos);
+        return vista;
     }
 
     @RequestMapping("/ver_actualizar")

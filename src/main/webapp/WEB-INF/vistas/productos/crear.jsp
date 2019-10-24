@@ -1,5 +1,6 @@
 
 <jsp:include page="../generico/header.jsp"></jsp:include>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!-- End Navbar -->
 <div class="content">
 	<div class="container-fluid">
@@ -10,7 +11,7 @@
 						<p class="card-title">Nuevo Producto</p>
 					</div>
 					<div class="card-body">
-						<form class="form-horizontal" action="/backend/product/crear">
+                                            <form class="form-horizontal" method="POST" action="/backend/product/crear" enctype="multipart/form-data">
 							<fieldset>
 								<!-- Text input-->
 								<div class="form-group">
@@ -42,11 +43,11 @@
 									</div>
 								</div>
 
-								<div class="form-group">
-									<label class="col-md-4 control-label" for="textarea">URL
-										Imagen </label>
+								<div class="">
+									<label class="col-md-4 control-label" for="textarea">
+										Imagen local </label>
 									<div class="col-md-4">
-										<input id="textinput" name="url" type="text" placeholder=""
+										<input id="textinput" name="file" type="file"
 											class="form-control input-md">
 									</div>
 								</div>
@@ -56,8 +57,9 @@
 									<label class="col-md-4 control-label" for="selectbasic">Categoria</label>
 									<div class="col-md-4">
 										<select id="selectbasic" name="categoria" class="form-control">
-											<option value="1">Option one</option>
-											<option value="2">Option two</option>
+                                                                                    <c:forEach items="${categorias}" var="categoria"> 
+											<option value="${categoria.id}">${categoria.nombre}</option>
+                                                                                    </c:forEach>
 										</select>
 									</div>
 								</div>
@@ -66,7 +68,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="textinput">Unidades</label>
 									<div class="col-md-4">
-										<input id="textinput" name="unidades" type="text"
+										<input id="textinput" name="unidades" type="number" step="any"
 											placeholder="" class="form-control input-md">
 
 									</div>

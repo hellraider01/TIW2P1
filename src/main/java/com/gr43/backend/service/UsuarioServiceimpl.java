@@ -9,7 +9,6 @@ import com.gr43.backend.dao.UsuarioDao;
 import com.gr43.backend.model.Usuario;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,16 +26,14 @@ public class UsuarioServiceimpl implements UsuarioServicio{
     }
     
    
-    @Transactional
     @Override
     public void crear_usuario(Usuario u) {
         this.udao.save(u);
     }
 
     @Override
-    @Transactional
     public List<Usuario> listarTodos() {
-        return udao.findAll();
+        return udao.findAll(Usuario.class);
     }
     
     @PostConstruct

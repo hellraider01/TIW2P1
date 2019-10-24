@@ -83,6 +83,8 @@
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
     <bean id="xmlMessageConverter"
               class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+    
+    
 
 
     <bean id="viewResolver"

@@ -1,15 +1,13 @@
 package com.gr43.backend.dao;
 
 import java.util.List;
-import javax.transaction.Transactional;
-import org.springframework.stereotype.Repository;
 
 
 public interface IGenericDao<T> {
 
-    public T findOne(Long id);
+    public T findOne(int id, Class< T> clazz);
 
-    public List<T> findAll();
+    public List<T> findAll(Class< T> clazz);
 
     public void save(T entity);
 
@@ -17,5 +15,5 @@ public interface IGenericDao<T> {
 
     public void delete(T entity);
 
-    public void deleteById(Long entityId);
+    public void deleteById(int entityId, Class< T> clazz);
 }

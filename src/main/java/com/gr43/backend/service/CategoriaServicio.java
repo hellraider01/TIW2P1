@@ -18,4 +18,6 @@ public interface CategoriaServicio {
     
     public void crear_categoria(Categoria u);
     
+    public Categoria get_categoria(int id);
+    
 }

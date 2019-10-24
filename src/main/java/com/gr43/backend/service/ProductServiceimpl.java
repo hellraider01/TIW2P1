@@ -7,6 +7,7 @@ package com.gr43.backend.service;
 
 import com.gr43.backend.dao.ProductoDao;
 import com.gr43.backend.model.Producto;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
@@ -26,18 +27,15 @@ public class ProductServiceimpl implements ProductoServicio{
     public ProductServiceimpl() {
     }
     
-    
-
-    @Transactional
     @Override
     public void crear_producto(Producto u) {
         this.pdao.save(u);
+        System.out.println("Producto Guardado");
     }
 
     @Override
-    @Transactional
     public List<Producto> listarTodos() {
-        return pdao.findAll();
+        return pdao.findAll(Producto.class);
     }
     
     @PostConstruct
@@ -48,6 +46,7 @@ public class ProductServiceimpl implements ProductoServicio{
         p.setResumen("resumen");
         p.setDescripcion("descripcion");
         p.setCantidad(25);
+        p.setPrecio(new BigDecimal("25.3"));
         this.pdao.save(p);
     }
     
